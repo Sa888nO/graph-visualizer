@@ -20,17 +20,8 @@ const Controller = ({ matrixSize, updateMatrix, ins }) => {
 				row.push([+event.target[j + matrixSize * i].value]);
 			}
 			answer.push(row);
-			// answer.push([
-			// 	[+event.target[j].value],
-			// 	[+event.target[1 + 5 * i].value],
-			// 	[+event.target[2 + 5 * i].value],
-			// 	[+event.target[3 + 5 * i].value],
-			// 	[+event.target[4 + 5 * i].value],
-			// ]);
 		}
 
-		// eslint-disable-next-line no-console
-		console.log(answer);
 		updateMatrix(answer);
 		ins(true);
 	};
