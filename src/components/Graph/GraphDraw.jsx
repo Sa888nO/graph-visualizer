@@ -63,18 +63,6 @@ const GraphDraw = ({ matrix }) => {
 		},
 	};
 
-	return (
-		<Graph
-			key={uuidv4}
-			graph={graph}
-			options={options}
-			// events={events}
-			// style={style}
-			// getNetwork={this.getNetwork}
-			// getEdges={this.getEdges}
-			// getNodes={this.getNodes}
-			// vis={(vis) => (this.vis = vis)}
-		/>
-	);
+	return <Graph key={uuidv4} graph={graph} options={options} />;
 };
 export default GraphDraw;
