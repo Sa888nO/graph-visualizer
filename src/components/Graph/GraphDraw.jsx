@@ -1,3 +1,4 @@
+import { v4 as uuidv4 } from "uuid";
 import Graph from "vis-react";
 
 const GraphDraw = ({ matrix }) => {
@@ -6,18 +7,28 @@ const GraphDraw = ({ matrix }) => {
 	for (let i = 1; i < matrix.length + 1; i++) {
 		nodes.push({ id: i, label: i });
 	}
+
 	for (let i = 0; i < matrix.length; i++) {
 		for (let j = 0; j < matrix[i].length; j++) {
-			if (matrix[i][j] !== null) {
-				edges.push({
-					from: i + 1,
-					to: j + 1,
-					arrows: "to",
-					label: matrix[i][j],
-				});
+			if (matrix[i][j][0] !== 0) {
+				if (matrix[i][j][0] === -1) {
+					edges.push({
+						from: i + 1,
+						to: j + 1,
+						arrows: "to",
+					});
+				} else {
+					edges.push({
+						from: i + 1,
+						to: j + 1,
+						arrows: "to",
+						label: matrix[i][j][0],
+					});
+				}
 			}
 		}
 	}
+
 	let graph = {
 		nodes: nodes,
 		edges: edges,
@@ -46,17 +57,15 @@ const GraphDraw = ({ matrix }) => {
 				align: "vertical",
 			},
 			smooth: {
-				enabled: false, //setting to true enables curved lines
-				//type: "dynamic",
-				//roundness: 0.5
+				enabled: false,
 			},
 			physics: { enabled: false },
 		},
 	};
-	// eslint-disable-next-line no-console
-	console.log(edges);
+
 	return (
 		<Graph
+			key={uuidv4}
 			graph={graph}
 			options={options}
 			// events={events}
