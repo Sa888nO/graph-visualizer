@@ -1,6 +1,7 @@
 import { useState } from "react";
 import Controller from "@components/Controller";
 import GraphDraw from "@components/Graph/GraphDraw";
+import axios from "axios";
 import styled from "styled-components";
 
 const GraphBlock = styled.div`
@@ -27,6 +28,24 @@ const Size = styled.div`
 		text-align: center;
 	}
 `;
+
+let d = new FormData();
+d.append("input", "AlexEgorushkin201-362");
+d.append("size", "7");
+d.append("limit", "10");
+d.append("task_number", "1");
+// eslint-disable-next-line no-console
+console.log(d);
+async function getData() {
+	let res = await axios
+		.post(`http://test.std-1875.ist.mospolytech.ru/generate2`, d)
+		.then((res) => res.data);
+
+	if (res) {
+		// eslint-disable-next-line no-console
+		console.log(res);
+	}
+}
 
 const App = () => {
 	let [matrixIsReady, ready] = useState(false);
@@ -57,6 +76,7 @@ const App = () => {
 						-
 					</button>
 				</Size>
+				<button onClick={getData}>GETDATA</button>
 
 				<Controller
 					matrixSize={matrixSize}
