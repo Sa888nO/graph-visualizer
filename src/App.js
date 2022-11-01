@@ -30,31 +30,43 @@ const Size = styled.div`
 `;
 
 let d = new FormData();
-d.append("input", "AlexEgorushkin201-362");
-d.append("size", "7");
+d.append("namegroup", "Алекс201-362");
+d.append("size", "3");
 d.append("limit", "10");
 d.append("task_number", "1");
 // eslint-disable-next-line no-console
 console.log(d);
 async function getData() {
 	let res = await axios
-		.post(`http://test.std-1875.ist.mospolytech.ru/generate2`, d)
+		.post(
+			`http://test.std-1875.ist.mospolytech.ru/generate_with_task_number`,
+			d
+		)
 		.then((res) => res.data);
-
-	if (res) {
-		// eslint-disable-next-line no-console
-		console.log(res);
-	}
+	// eslint-disable-next-line no-console
+	console.log(res);
+	// if (res) {
+	// 	// eslint-disable-next-line no-console
+	// 	return res.matrix;
+	// }
+	return res;
 }
+
+const parse = (matrix) => {};
 
 const App = () => {
 	let [matrixIsReady, ready] = useState(false);
 	const [matrixSize, updateSize] = useState(5);
 	const [matrix, updateMatrix] = useState();
+
 	return (
 		<Content>
 			<GraphBlock>
-				{matrixIsReady ? <GraphDraw matrix={matrix} /> : <></>}
+				{matrixIsReady ? (
+					<GraphDraw matrix={matrix} ins={ready} />
+				) : (
+					<></>
+				)}
 			</GraphBlock>
 			<div>
 				<Size>
@@ -76,13 +88,23 @@ const App = () => {
 						-
 					</button>
 				</Size>
-				<button onClick={getData}>GETDATA</button>
+				<button
+					onClick={async () => {
+						let m = await getData();
+						updateMatrix(m.matrix);
+						ready(true);
+						// eslint-disable-next-line no-console
+						console.log(m.matrix, " +++ ", matrix);
+					}}
+				>
+					GETDATA
+				</button>
 
-				<Controller
+				{/* <Controller
 					matrixSize={matrixSize}
 					updateMatrix={updateMatrix}
 					ins={ready}
-				/>
+				/> */}
 			</div>
 		</Content>
 	);
