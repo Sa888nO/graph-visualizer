@@ -16,13 +16,8 @@ class QueryStore {
 		let d = new FormData();
 		d.append("namegroup", this.namegroup);
 		d.append("size", this.size);
-		d.append("limit", this.limit);
-		d.append("task_number", "1");
 		let res = await axios
-			.post(
-				`http://test.std-1875.ist.mospolytech.ru/generate_with_task_number`,
-				d
-			)
+			.post(`http://test.std-1875.ist.mospolytech.ru/generate`, d)
 			.then((res) => res.data);
 		// eslint-disable-next-line no-console
 		console.log("store", res);

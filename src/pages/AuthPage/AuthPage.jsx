@@ -24,26 +24,29 @@ const Content = styled.div`
 	flex-direction: column;
 	align-items: center;
 	form {
-    text-align: center;
+		text-align: center;
 		display: flex;
 		flex-direction: column;
-    width 70%;
-    gap: 10px;
-    input{
-      width: 50%;
-      margin: 0 auto;
-      max-width: 375px;
-      border: 1px solid black;
-      font-size: 16px;
-      border-radius: 10px;
-      padding: 3px 0 3px 10px;
-      &:focus {outline: none;};
+		width: 70%;
+		gap: 10px;
+		input {
+			width: 50%;
+			margin: 0 auto;
+			max-width: 375px;
+			border: 1px solid black;
+			font-size: 16px;
+			border-radius: 10px;
+			padding: 3px 0 3px 10px;
+			&:focus {
+				outline: none;
+			}
+		}
 	}
-  p{
-    color: red;
-    font-size: 20px;
-    font-weight: bold;
-  }
+	p {
+		color: red;
+		font-size: 20px;
+		font-weight: bold;
+	}
 `;
 
 const Size = styled.div`
@@ -65,70 +68,40 @@ const AuthPage = () => {
 			event.target[0].value &&
 			event.target[1].value &&
 			event.target[2].value &&
-			event.target[3].value &&
-			event.target[4].value &&
-			event.target[5].value
+			event.target[3].value
 		) {
 			QueryStore.namegroup =
 				event.target[0].value +
 				event.target[1].value +
 				event.target[2].value;
 			QueryStore.size = event.target[3].value;
-			QueryStore.limit = event.target[4].value;
-			// eslint-disable-next-line no-console
 			setUpd(true);
 		} else setSend(true);
 	};
-
-	const [matrix, updateMatrix] = useState();
 
 	return (
 		<Content>
 			<form onSubmit={handleSubmit}>
 				Имя
 				<input
-					type={"text"}
-					name={"a"}
 					className={classNames({
 						[styles.warning]: send,
 					})}
 				></input>{" "}
 				Фамилия
 				<input
-					type={"text"}
-					name={"a"}
 					className={classNames({
 						[styles.warning]: send,
 					})}
 				></input>{" "}
 				Номер группы
 				<input
-					type={"text"}
-					name={"a"}
 					className={classNames({
 						[styles.warning]: send,
 					})}
-				></input>{" "}
+				></input>
 				Размер матрицы
 				<input
-					type={"text"}
-					name={"a"}
-					className={classNames({
-						[styles.warning]: send,
-					})}
-				></input>
-				Лимит
-				<input
-					type={"text"}
-					name={"a"}
-					className={classNames({
-						[styles.warning]: send,
-					})}
-				></input>
-				Номер задания
-				<input
-					type={"text"}
-					name={"a"}
 					className={classNames({
 						[styles.warning]: send,
 					})}

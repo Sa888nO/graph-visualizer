@@ -49,7 +49,6 @@ const GraphPage = () => {
 	console.log(QueryStore.namegroup, QueryStore.size, QueryStore.limit);
 	let [matrixIsReady, ready] = useState(false);
 	const [graphDraw, updateGraphDraw] = useState(false);
-	const [matrixSize, updateSize] = useState(5);
 	const [matrix, updateMatrix] = useState();
 
 	return (
