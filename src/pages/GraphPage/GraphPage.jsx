@@ -1,7 +1,7 @@
-import { useEffect, useState } from "react";
-import Controller from "@components/Controller";
+import { useState } from "react";
+
 import GraphDraw from "@components/Graph/GraphDraw";
-import axios from "axios";
+
 import { observer } from "mobx-react-lite";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
@@ -31,16 +31,6 @@ const Content = styled.div`
 		flex-direction: center;
 		align-items: center;
 		gap: 30px;
-	}
-`;
-
-const Size = styled.div`
-	display: flex;
-	flex-direction: column;
-	max-width: 30px;
-	margin: 0 auto;
-	p {
-		text-align: center;
 	}
 `;
 

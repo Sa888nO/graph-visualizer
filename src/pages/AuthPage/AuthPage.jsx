@@ -1,63 +1,11 @@
 import { useState } from "react";
-import Controller from "@components/Controller";
-import GraphDraw from "@components/Graph/GraphDraw";
-import axios from "axios";
+
+import { InputWithTitle } from "@components/InputWithTitle";
 import classNames from "classnames";
 import { observer } from "mobx-react-lite";
-import { Link, Navigate } from "react-router-dom";
-import styled from "styled-components";
+import { Navigate } from "react-router-dom";
 import QueryStore from "./../../store/QueryStore";
 import styles from "./AuthPage.module.scss";
-
-const GraphBlock = styled.div`
-	height: 90vh;
-	width: 60vw;
-	border: 3px solid black;
-	border-radius: 20px;
-`;
-const Content = styled.div`
-	gap: 20px;
-	padding: 20px;
-	width: 100%;
-	height: 100vh;
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	form {
-		text-align: center;
-		display: flex;
-		flex-direction: column;
-		width: 70%;
-		gap: 10px;
-		input {
-			width: 50%;
-			margin: 0 auto;
-			max-width: 375px;
-			border: 1px solid black;
-			font-size: 16px;
-			border-radius: 10px;
-			padding: 3px 0 3px 10px;
-			&:focus {
-				outline: none;
-			}
-		}
-	}
-	p {
-		color: red;
-		font-size: 20px;
-		font-weight: bold;
-	}
-`;
-
-const Size = styled.div`
-	display: flex;
-	flex-direction: column;
-	max-width: 30px;
-	margin: 0 auto;
-	p {
-		text-align: center;
-	}
-`;
 
 const AuthPage = () => {
 	const [StoreisUpdated, setUpd] = useState(false);
@@ -80,33 +28,13 @@ const AuthPage = () => {
 	};
 
 	return (
-		<Content>
-			<form onSubmit={handleSubmit}>
-				Имя
-				<input
-					className={classNames({
-						[styles.warning]: send,
-					})}
-				></input>{" "}
-				Фамилия
-				<input
-					className={classNames({
-						[styles.warning]: send,
-					})}
-				></input>{" "}
-				Номер группы
-				<input
-					className={classNames({
-						[styles.warning]: send,
-					})}
-				></input>
-				Размер матрицы
-				<input
-					className={classNames({
-						[styles.warning]: send,
-					})}
-				></input>
-				{send ? <p>ЗАПОЛНИТЕ ВСЕ ПОЛЯ!!!</p> : <></>}
+		<div className={styles.content}>
+			<form onSubmit={handleSubmit} className={styles.formBlock}>
+				<InputWithTitle title="Имя" isWarning={send} />
+				<InputWithTitle title="Фамилия" isWarning={send} />
+				<InputWithTitle title="Номер группы" isWarning={send} />
+				<InputWithTitle title="Размер матрицы" isWarning={send} />
+
 				<button
 					type="submit"
 					onClick={() => {}}
@@ -120,7 +48,7 @@ const AuthPage = () => {
 			) : (
 				<></>
 			)}
-		</Content>
+		</div>
 	);
 };
 

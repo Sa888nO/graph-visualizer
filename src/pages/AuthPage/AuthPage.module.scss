@@ -1,3 +1,26 @@
 .warning {
 	border: 1px solid red !important;
 }
+
+.content {
+	gap: 20px;
+	padding: 20px;
+	height: 100vh;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.formBlock {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	max-width: 250px;
+	width: 100%;
+	gap: 10px;
+
+	button {
+		width: 100%;
+		max-width: 375px;
+	}
+}
