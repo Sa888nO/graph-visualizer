@@ -49,21 +49,20 @@ const GraphDraw = ({ matrix, ins }) => {
 		},
 
 		edges: {
-			arrows: {},
 			color: {},
 			font: {
-				color: "#343434",
-				size: 11, // px
+				color: "#ffffff",
+				size: 14, // px
 				face: "arial",
 				background: "none",
 				strokeWidth: 5, // px
-				strokeColor: "#ffffff",
+				strokeColor: "#002b0b",
 				align: "vertical",
 			},
 			smooth: {
 				enabled: false,
 			},
-			physics: { enabled: false },
+			physics: { enabled: true },
 		},
 	};
 

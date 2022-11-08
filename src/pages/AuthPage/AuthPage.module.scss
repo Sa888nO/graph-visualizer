@@ -4,8 +4,8 @@
 
 .content {
 	gap: 20px;
-	padding: 20px;
-	height: 100vh;
+	padding: 20px 0;
+	min-height: 100vh;
 	display: flex;
 	justify-content: center;
 	align-items: center;
@@ -23,4 +23,11 @@
 		width: 100%;
 		max-width: 375px;
 	}
+}
+
+.checkboxBlock {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	gap: 10px;
 }

@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 import GraphDraw from "@components/Graph/GraphDraw";
 
@@ -41,6 +41,16 @@ const GraphPage = () => {
 	const [graphDraw, updateGraphDraw] = useState(false);
 	const [matrix, updateMatrix] = useState();
 
+	const draw = async () => {
+		let m = await QueryStore.getMatrix();
+		updateMatrix(m.matrix);
+		ready(false);
+		setTimeout(() => ready(true), 100);
+		updateGraphDraw(true);
+	};
+	useEffect(() => {
+		setTimeout(draw, 10);
+	}, []);
 	return (
 		<Content>
 			<div>
@@ -89,7 +99,6 @@ const GraphPage = () => {
 					</>
 				)}
 			</div>
-
 			<GraphBlock>
 				{matrixIsReady ? (
 					<GraphDraw matrix={matrix} ins={ready} />

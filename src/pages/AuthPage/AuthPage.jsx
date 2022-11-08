@@ -23,6 +23,9 @@ const AuthPage = () => {
 				event.target[1].value +
 				event.target[2].value;
 			QueryStore.size = event.target[3].value;
+			// eslint-disable-next-line no-console
+			console.log(event.target[4]);
+			QueryStore.minus = event.target[4].checked ? true : false;
 			setUpd(true);
 		} else setSend(true);
 	};
@@ -34,6 +37,10 @@ const AuthPage = () => {
 				<InputWithTitle title="Фамилия" isWarning={send} />
 				<InputWithTitle title="Номер группы" isWarning={send} />
 				<InputWithTitle title="Размер матрицы" isWarning={send} />
+				<div className={styles.checkboxBlock}>
+					Отрицательные значения будут?
+					<input type="checkbox"></input>
+				</div>
 
 				<button
 					type="submit"
