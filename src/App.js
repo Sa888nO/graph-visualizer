@@ -8,7 +8,6 @@ const App = () => {
 			<Routes>
 				<Route path="/" element={<AuthPage />} />
 				<Route path="your-task-graph" element={<GraphPage />} />
-				<Route path="*" element={<>404</>} />
 			</Routes>
 		</BrowserRouter>
 	);
