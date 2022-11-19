@@ -1,7 +1,7 @@
 import { v4 as uuidv4 } from "uuid";
 import Graph from "vis-react";
 
-const GraphDraw = ({ matrix, ins }) => {
+const GraphDraw = ({ matrix }) => {
 	// eslint-disable-next-line no-console
 	console.log(matrix);
 	let nodes = [];
@@ -30,8 +30,6 @@ const GraphDraw = ({ matrix, ins }) => {
 			}
 		}
 	}
-	// eslint-disable-next-line no-console
-	console.log(nodes, " --- ", edges);
 
 	let graph = {
 		nodes: nodes,

@@ -1,6 +1,6 @@
 import axios from "axios";
 
-import { makeAutoObservable, runInAction } from "mobx";
+import { makeAutoObservable } from "mobx";
 
 class QueryStore {
 	namegroup;
@@ -15,8 +15,6 @@ class QueryStore {
 
 	async getMatrix() {
 		let d = new FormData();
-		// eslint-disable-next-line no-console
-		console.log(this.minus);
 		if (this.minus) {
 			d.append("negatives", 1);
 		}
@@ -25,8 +23,6 @@ class QueryStore {
 		let res = await axios
 			.post(`http://test.std-1875.ist.mospolytech.ru/generate`, d)
 			.then((res) => res.data);
-		// eslint-disable-next-line no-console
-		console.log("store", res);
 		return res;
 	}
 }
