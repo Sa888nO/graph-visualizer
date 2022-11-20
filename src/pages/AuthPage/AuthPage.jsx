@@ -20,13 +20,17 @@ const AuthPage = () => {
 			event.target[3].value
 		) {
 			QueryStore.namegroup =
-				event.target[0].value +
-				event.target[1].value +
-				event.target[2].value;
-			QueryStore.size = event.target[3].value;
+				event.target.name.value +
+				event.target.surname.value +
+				event.target.groupNumberPath1.value +
+				"-" +
+				event.target.groupNumberPath2.value;
+			QueryStore.size = event.target.size.value;
 			// eslint-disable-next-line no-console
-			console.log(event.target.GroupNumber);
-			QueryStore.minus = event.target[4].checked ? true : false;
+			console.log(event.target.negatives);
+			QueryStore.minus = event.target.negatives.checked ? true : false;
+			QueryStore.graphType =
+				event.target.GraphType.value + event.target.WeightType.value;
 			setUpd(true);
 		} else setSend(true);
 	};
@@ -34,14 +38,23 @@ const AuthPage = () => {
 	return (
 		<div className={styles.content}>
 			<form onSubmit={handleSubmit} className={styles.formBlock}>
-				<InputWithTitle title="Имя" isWarning={send} />
-				<InputWithTitle title="Фамилия" isWarning={send} />
+				<InputWithTitle title="Имя" isWarning={send} name="name" />
 				<InputWithTitle
-					title="Номер группы"
+					title="Фамилия"
 					isWarning={send}
-					name="GroupNumber"
+					name="surname"
 				/>
-				<InputWithTitle title="Размер матрицы" isWarning={send} />
+				<div className={styles.groupNumberBlock}>
+					<div>
+						<input name="groupNumberPath1"></input>-
+						<input name="groupNumberPath2"></input>
+					</div>
+				</div>
+				<InputWithTitle
+					title="Размер матрицы"
+					isWarning={send}
+					name="size"
+				/>
 				<select name="GraphType">
 					<option value="o">Ориентированный</option>
 					<option value="u">Неориентированный</option>
@@ -58,14 +71,15 @@ const AuthPage = () => {
 					<option value="u">Невзвешенный</option>
 					<option value="w">Взвешенный</option>
 				</select>
-				{renderCheckbox ? (
-					<div className={styles.checkboxBlock}>
-						Отрицательные значения будут?
-						<input type="checkbox"></input>
-					</div>
-				) : (
-					<></>
-				)}
+
+				<div
+					className={classNames(styles.checkboxBlock, {
+						[styles.s]: !renderCheckbox,
+					})}
+				>
+					Отрицательные значения будут?
+					<input type="checkbox" name="negatives"></input>
+				</div>
 
 				<button
 					type="submit"

@@ -33,8 +33,7 @@ const Controller = ({ matrixSize, updateMatrix, ins }) => {
 					<div className={styles.row}>
 						{row.map((item, key) => (
 							<>
-								{item}:{" "}
-								<input type={"text"} name={item}></input>{" "}
+								{item}:<input type={"text"} name={item}></input>
 							</>
 						))}
 					</div>

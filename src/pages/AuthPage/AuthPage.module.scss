@@ -31,3 +31,27 @@
 	align-items: center;
 	gap: 10px;
 }
+
+.groupNumberBlock {
+	div {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	}
+	input {
+		text-align: center;
+		max-width: 60px;
+		padding: 7px;
+		border-radius: 15px;
+		border: none;
+		border: 2px solid gray;
+		&:focus {
+			outline: none;
+			border: 2px solid black;
+		}
+	}
+}
+
+.s {
+	display: none;
+}
