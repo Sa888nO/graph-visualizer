@@ -9,6 +9,7 @@ import styles from "./AuthPage.module.scss";
 
 const AuthPage = () => {
 	const [StoreisUpdated, setUpd] = useState(false);
+	const [fullGraph, updateFullGraph] = useState(false);
 	const [send, setSend] = useState(false);
 	const [renderCheckbox, updateRenderCheckbox] = useState(false);
 	const handleSubmit = (event) => {
@@ -27,7 +28,7 @@ const AuthPage = () => {
 				event.target.groupNumberPath2.value;
 			QueryStore.size = event.target.size.value;
 			// eslint-disable-next-line no-console
-			console.log(event.target.negatives);
+			console.log(event.target.negatives.checked);
 			QueryStore.minus = event.target.negatives.checked ? true : false;
 			QueryStore.graphType =
 				event.target.GraphType.value + event.target.WeightType.value;
@@ -55,7 +56,14 @@ const AuthPage = () => {
 					isWarning={send}
 					name="size"
 				/>
-				<select name="GraphType">
+				<select
+					name="GraphType"
+					onChange={(e) => {
+						e.target.value === "p"
+							? updateFullGraph(true)
+							: updateFullGraph(false);
+					}}
+				>
 					<option value="o">Ориентированный</option>
 					<option value="u">Неориентированный</option>
 					<option value="p">Полновесный</option>
@@ -74,7 +82,7 @@ const AuthPage = () => {
 
 				<div
 					className={classNames(styles.checkboxBlock, {
-						[styles.s]: !renderCheckbox,
+						[styles.s]: !renderCheckbox || fullGraph,
 					})}
 				>
 					Отрицательные значения будут?
