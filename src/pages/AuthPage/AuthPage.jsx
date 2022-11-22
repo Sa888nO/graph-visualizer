@@ -1,5 +1,4 @@
 import { useState } from "react";
-
 import { InputWithTitle } from "@components/InputWithTitle";
 import QueryStore from "@store/QueryStore";
 import classNames from "classnames";
@@ -27,8 +26,6 @@ const AuthPage = () => {
 				"-" +
 				event.target.groupNumberPath2.value;
 			QueryStore.size = event.target.size.value;
-			// eslint-disable-next-line no-console
-			console.log(event.target.negatives.checked);
 			QueryStore.minus = event.target.negatives.checked ? true : false;
 			QueryStore.graphType =
 				event.target.GraphType.value + event.target.WeightType.value;

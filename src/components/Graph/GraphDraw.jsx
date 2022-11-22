@@ -1,39 +1,10 @@
 import QueryStore from "@store/QueryStore";
+import { ParseMatrixToNodesAndEdges } from "@utils/ParseMatrixToNodesAndEdges";
 import { v4 as uuidv4 } from "uuid";
 import Graph from "vis-react";
 
 const GraphDraw = ({ matrix }) => {
-	let nodes = [];
-	let edges = [];
-	for (let i = 1; i < matrix.length + 1; i++) {
-		nodes.push({ id: i, label: i });
-	}
-
-	for (let i = 0; i < matrix.length; i++) {
-		for (let j = 0; j < matrix[i].length; j++) {
-			if (matrix[i][j] !== 0) {
-				if (
-					QueryStore.graphType == "uu" ||
-					QueryStore.graphType == "ou" ||
-					QueryStore.graphType == "pu"
-				) {
-					edges.push({
-						from: i + 1,
-						to: j + 1,
-						arrows: "to",
-					});
-				} else {
-					edges.push({
-						from: i + 1,
-						to: j + 1,
-						arrows: "to",
-						label: matrix[i][j],
-					});
-				}
-			}
-		}
-	}
-
+	const [nodes, edges] = ParseMatrixToNodesAndEdges(matrix);
 	let graph = {
 		nodes: nodes,
 		edges: edges,
@@ -103,8 +74,7 @@ const GraphDraw = ({ matrix }) => {
 	let options;
 	QueryStore.graphType == "uw" ||
 	QueryStore.graphType == "pu" ||
-	QueryStore.graphType == "uu" ||
-	QueryStore.graphType == "pw"
+	QueryStore.graphType == "uu"
 		? (options = options1)
 		: (options = options2);
 

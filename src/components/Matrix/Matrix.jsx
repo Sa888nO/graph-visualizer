@@ -8,9 +8,13 @@ export const Matrix = ({ matrix }) => {
 				<div className={styles.block}>
 					{item.map((item) => (
 						<div
-							className={classNames(styles.item, {
-								[styles.weight]: item > 0,
-							})}
+							className={classNames(
+								styles.item,
+								{
+									[styles.weight]: item > 0,
+								},
+								{ [styles.negative]: item < 0 }
+							)}
 						>
 							{item}
 						</div>
