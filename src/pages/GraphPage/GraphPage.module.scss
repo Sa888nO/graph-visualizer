@@ -18,10 +18,14 @@
 		text-decoration: none;
 		cursor: pointer;
 	}
-	div {
+	.block {
 		display: flex;
 		flex-direction: center;
 		align-items: center;
 		gap: 30px;
 	}
+}
+.uiChange {
+	padding: 7px;
+	border-radius: 15px;
 }

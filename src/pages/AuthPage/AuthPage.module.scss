@@ -33,6 +33,10 @@
 }
 
 .groupNumberBlock {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 10px;
 	div {
 		display: flex;
 		justify-content: center;
@@ -54,4 +58,21 @@
 
 .s {
 	display: none;
+}
+
+.InputMatrixSize {
+	width: 40px;
+	border-radius: 15px;
+	padding: 7px;
+	text-align: center;
+	margin: 0 auto;
+}
+.submitButton {
+	border-radius: 15px;
+	padding: 5px;
+	background-color: greenyellow;
+}
+select,
+button {
+	cursor: pointer;
 }

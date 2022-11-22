@@ -46,15 +46,18 @@ const AuthPage = () => {
 					name="surname"
 				/>
 				<div className={styles.groupNumberBlock}>
+					Номер группы
 					<div>
-						<input name="groupNumberPath1"></input>-
-						<input name="groupNumberPath2"></input>
+						<input name="groupNumberPath1" maxlength="3"></input>-
+						<input name="groupNumberPath2" maxlength="3"></input>
 					</div>
 				</div>
 				<InputWithTitle
 					title="Размер матрицы"
 					isWarning={send}
 					name="size"
+					maxlength="2"
+					className={styles.InputMatrixSize}
 				/>
 				<select
 					name="GraphType"
@@ -93,6 +96,7 @@ const AuthPage = () => {
 					type="submit"
 					onClick={() => {}}
 					to={"/your-task-graph"}
+					className={styles.submitButton}
 				>
 					Получить задание
 				</button>

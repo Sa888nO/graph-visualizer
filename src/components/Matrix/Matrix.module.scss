@@ -1,0 +1,24 @@
+.wrapper {
+	display: flex;
+	flex-direction: column;
+	div {
+		display: flex;
+		gap: none;
+	}
+}
+
+.block {
+}
+
+.item {
+	display: flex;
+	align-items: center;
+	border: 1px solid black;
+	justify-content: center;
+	width: 30px;
+	height: 30px;
+}
+
+.weight {
+	background-color: azure;
+}
