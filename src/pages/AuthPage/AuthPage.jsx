@@ -45,15 +45,15 @@ const AuthPage = () => {
 				<div className={styles.groupNumberBlock}>
 					Номер группы
 					<div>
-						<input name="groupNumberPath1" maxlength="3"></input>-
-						<input name="groupNumberPath2" maxlength="3"></input>
+						<input name="groupNumberPath1" maxLength="3"></input>-
+						<input name="groupNumberPath2" maxLength="3"></input>
 					</div>
 				</div>
 				<InputWithTitle
 					title="Размер матрицы"
 					isWarning={send}
 					name="size"
-					maxlength="2"
+					maxLength="2"
 					className={styles.InputMatrixSize}
 				/>
 				<select

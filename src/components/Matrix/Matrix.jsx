@@ -4,8 +4,8 @@ import styles from "./Matrix.module.scss";
 export const Matrix = ({ matrix }) => {
 	return (
 		<div className={styles.wrapper}>
-			{matrix.map((item) => (
-				<div className={styles.block}>
+			{matrix.map((item, key) => (
+				<div className={styles.block} key={key}>
 					{item.map((item) => (
 						<div
 							className={classNames(

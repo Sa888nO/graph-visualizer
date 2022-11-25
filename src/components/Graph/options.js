@@ -14,7 +14,7 @@ export const options1 = {
 			middle: { enabled: true, scaleFactor: 0, type: "arrow" },
 			from: { enabled: true, scaleFactor: 0, type: "arrow" },
 		},
-		smooth: { size: 100, type: "vertical", roundness: 0 },
+		smooth: { type: "vertical", roundness: 0 },
 		color: {},
 		font: {
 			color: "#ffffff",
@@ -44,7 +44,6 @@ export const options2 = {
 			from: { enabled: false, scaleFactor: 1, type: "arrow" },
 		},
 		smooth: {
-			size: 100,
 			type: "diagonalCross",
 			roundness: 0.09,
 		},
