@@ -76,3 +76,13 @@ select,
 button {
 	cursor: pointer;
 }
+
+.isWarning {
+	border-color: red !important;
+}
+
+.warningMassage {
+	font-size: 18px;
+	font-weight: bold;
+	color: red;
+}

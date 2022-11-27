@@ -9,15 +9,16 @@ import styles from "./AuthPage.module.scss";
 const AuthPage = () => {
 	const [StoreisUpdated, setUpd] = useState(false);
 	const [fullGraph, updateFullGraph] = useState(false);
-	const [send, setSend] = useState(false);
+	const [notValid, setNotValid] = useState(false);
 	const [renderCheckbox, updateRenderCheckbox] = useState(false);
 	const handleSubmit = (event) => {
 		event.preventDefault();
 		if (
-			event.target[0].value &&
-			event.target[1].value &&
-			event.target[2].value &&
-			event.target[3].value
+			event.target.name.value &&
+			event.target.surname.value &&
+			event.target.groupNumberPath1.value &&
+			event.target.groupNumberPath2.value &&
+			event.target.size.value
 		) {
 			QueryStore.namegroup =
 				event.target.name.value +
@@ -30,28 +31,41 @@ const AuthPage = () => {
 			QueryStore.graphType =
 				event.target.GraphType.value + event.target.WeightType.value;
 			setUpd(true);
-		} else setSend(true);
+		} else setNotValid(true);
 	};
 
 	return (
 		<div className={styles.content}>
 			<form onSubmit={handleSubmit} className={styles.formBlock}>
-				<InputWithTitle title="Имя" isWarning={send} name="name" />
+				<InputWithTitle title="Имя" isWarning={notValid} name="name" />
 				<InputWithTitle
 					title="Фамилия"
-					isWarning={send}
+					isWarning={notValid}
 					name="surname"
 				/>
 				<div className={styles.groupNumberBlock}>
 					Номер группы
 					<div>
-						<input name="groupNumberPath1" maxLength="3"></input>-
-						<input name="groupNumberPath2" maxLength="3"></input>
+						<input
+							name="groupNumberPath1"
+							maxLength="3"
+							className={classNames({
+								[styles.isWarning]: notValid,
+							})}
+						></input>
+						-
+						<input
+							name="groupNumberPath2"
+							maxLength="3"
+							className={classNames({
+								[styles.isWarning]: notValid,
+							})}
+						></input>
 					</div>
 				</div>
 				<InputWithTitle
 					title="Размер матрицы"
-					isWarning={send}
+					isWarning={notValid}
 					name="size"
 					maxLength="2"
 					className={styles.InputMatrixSize}
@@ -88,13 +102,14 @@ const AuthPage = () => {
 					Отрицательные значения будут?
 					<input type="checkbox" name="negatives"></input>
 				</div>
-
-				<button
-					type="submit"
-					onClick={() => {}}
-					to={"/your-task-graph"}
-					className={styles.submitButton}
-				>
+				{notValid ? (
+					<div className={styles.warningMassage}>
+						Заполните все необходимые поля
+					</div>
+				) : (
+					<></>
+				)}
+				<button type="submit" className={styles.submitButton}>
 					Получить задание
 				</button>
 			</form>

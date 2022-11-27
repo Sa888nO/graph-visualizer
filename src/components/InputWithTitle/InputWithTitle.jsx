@@ -6,10 +6,14 @@ export const InputWithTitle = ({ title, isWarning, ...props }) => {
 		<div className={styles.wrapper}>
 			<p>{title}</p>
 			<input
-				className={classNames(styles.input, {
-					[styles.warning]: isWarning,
-				})}
-				{...props}
+				className={classNames(
+					styles.input,
+					{
+						[styles.warning]: isWarning,
+					},
+					props.className
+				)}
+				name={props.name}
 			></input>
 		</div>
 	);
