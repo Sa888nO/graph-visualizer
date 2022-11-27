@@ -1,4 +1,3 @@
-/* eslint-disable no-console */
 import QueryStore from "@store/QueryStore";
 export const ParseMatrixToNodesAndEdges = (matrix) => {
 	let nodes = [];
@@ -9,7 +8,6 @@ export const ParseMatrixToNodesAndEdges = (matrix) => {
 
 	for (let i = 0; i < matrix.length; i++) {
 		for (let j = 0; j < matrix[i].length; j++) {
-			console.log(matrix[j][i] + "+" + matrix[i][j]);
 			if (matrix[i][j] !== 0) {
 				if (
 					QueryStore.graphType == "uu" ||

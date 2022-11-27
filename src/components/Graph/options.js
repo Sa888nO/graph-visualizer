@@ -6,26 +6,54 @@ export const options1 = {
 			border: "#222222",
 			background: "grey",
 		},
-		font: { color: "black", size: 14, face: "arial" },
+		font: { color: "black", size: 11, face: "arial" },
 	},
+
 	edges: {
-		arrows: {
-			to: { enabled: true, scaleFactor: 0, type: "arrow" },
-			middle: { enabled: true, scaleFactor: 0, type: "arrow" },
-			from: { enabled: true, scaleFactor: 0, type: "arrow" },
-		},
-		smooth: { type: "vertical", roundness: 0 },
+		arrows: {},
 		color: {},
 		font: {
-			color: "#ffffff",
-			size: 14,
+			color: "#343434",
+			size: 16,
+
 			face: "arial",
+			background: "none",
 			strokeWidth: 5,
-			strokeColor: "#002b0b",
-			align: "top",
+			strokeColor: "#ffffff",
+			align: "vertical",
 		},
-		physics: false,
+		smooth: {
+			enabled: false,
+		},
+		physics: { enabled: false },
 	},
+	// nodes: {
+	// 	borderWidth: 1,
+	// 	size: 45,
+	// 	color: {
+	// 		border: "#222222",
+	// 		background: "grey",
+	// 	},
+	// 	font: { color: "black", size: 14, face: "arial" },
+	// },
+	// edges: {
+	// 	arrows: {
+	// 		to: { enabled: true, scaleFactor: 0, type: "arrow" },
+	// 		middle: { enabled: true, scaleFactor: 0, type: "arrow" },
+	// 		from: { enabled: true, scaleFactor: 0, type: "arrow" },
+	// 	},
+	// 	smooth: { type: "vertical", roundness: 0 },
+	// 	color: {},
+	// 	font: {
+	// 		color: "#ffffff",
+	// 		size: 14,
+	// 		face: "arial",
+	// 		strokeWidth: 5,
+	// 		strokeColor: "#002b0b",
+	// 		align: "top",
+	// 	},
+	// 	physics: false,
+	// },
 };
 export const options2 = {
 	nodes: {
