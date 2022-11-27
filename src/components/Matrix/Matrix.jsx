@@ -6,8 +6,9 @@ export const Matrix = ({ matrix }) => {
 		<div className={styles.wrapper}>
 			{matrix.map((item, key) => (
 				<div className={styles.block} key={key}>
-					{item.map((item) => (
+					{item.map((item, key) => (
 						<div
+							key={key}
 							className={classNames(
 								styles.item,
 								{
